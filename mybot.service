@@ -1,0 +1,12 @@
+[Unit]
+Description=My TG Bot
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/home/dmasicev/discount_bot/venv/bin/python /home/dmasicev/discount_bot/discount_bot.py
+WorkingDirectory=/home/dmasicev/discount_bot
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
