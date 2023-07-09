@@ -24,7 +24,8 @@ async def start(message: types.Message):
 @dp.message_handler(Text(equals="Кроссовки"))
 async def get_discount_sneakers(message: types.Message):
     await message.answer("Please waiting...")
-    if get_json():
+    res = get_json()
+    if res == 200:
         with open('collect_data.json', encoding='utf-8') as file:
             data = json.load(file)
         for item in data:
@@ -35,7 +36,7 @@ async def get_discount_sneakers(message: types.Message):
                    f"{hbold('Прайс: ')} {item.get('price')}"
             await message.answer(card)
     else:
-        await message.answer("Доступ к ресурсу ограничен")
+        await message.answer(f"Доступ к ресурсу ограничен {res}")
 
 
 def main():
