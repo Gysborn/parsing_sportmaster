@@ -96,6 +96,3 @@ def get_json():
     else:
         return False
 
-
-if __name__ == '__main__':
-    get_json()
