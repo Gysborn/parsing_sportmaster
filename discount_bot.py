@@ -1,16 +1,15 @@
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.dispatcher.filters import Text
 from aiogram.utils.markdown import hbold, hlink
-import json
+import json, os
 
 from main import get_json
 
-token = "6376030033:AAGkGcMPi81gGN03nTXC4ZiGO7eM_vCvP1Y"
+token = os.getenv('TOKEN')
 bot = Bot(token=token, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot)
 
 
-# TODO: Как создавать переменную окружения
 
 @dp.message_handler(commands="start")
 async def start(message: types.Message):
